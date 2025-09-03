@@ -1,21 +1,23 @@
 FROM python:3.10-slim
 
-# Set working directory
+# Working directory set karein
 WORKDIR /app
 
-# System deps for yt-dlp (ffmpeg required)
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy app files
+# Project files copy karein
 COPY . .
 
-# Install Python dependencies
+# System dependencies install karein (ffmpeg zaroori hai yt-dlp ke liye)
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python dependencies install karein
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port (Render/Heroku needs this)
-EXPOSE 5000
+# Render ya Docker port expose karein
+EXPOSE 10000
 
-# Run the Flask app (host=0.0.0.0 for external access)
+# App run karein (Render apna PORT set karega, app.py me code ready hai)
 CMD ["python", "app.py"]
+
