@@ -1,23 +1,22 @@
 FROM python:3.10-slim
 
-# Working directory set karein
 WORKDIR /app
 
-# Project files copy karein
+# Copy project files
 COPY . .
 
-# System dependencies install karein (ffmpeg zaroori hai yt-dlp ke liye)
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    build-essential \
+# Install ffmpeg and clean up apt cache
+RUN apt-get update && apt-get install -y ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
-# Python dependencies install karein
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Render ya Docker port expose karein
+# Expose the port (Render will auto-set PORT env)
 EXPOSE 10000
 
-# App run karein (Render apna PORT set karega, app.py me code ready hai)
+# Start the app
 CMD ["python", "app.py"]
+
+
 
