@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="amit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<style>
+
+    *{
+      margin: 0px;
+      padding: 0px;
+background-color: rgb(236, 234, 232);
+
+
+    }
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 10px;
+  padding: 0px;
+  
+}
+
+input {
+  padding: 10px;
+  width: 300px;
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #ddcaca;
+ border-radius: 5px;
+
+
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 0%;
+  border-style: double;
+  border-radius: 10px;
+  font-size: medium;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #f9f9f9;
+  min-width: 200px;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 8px 12px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background: #ddd;
+} 
+.Enter{
+background-color: #ddcaca;
+ font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+  position: relative;
+  top: 60px;
+  border-radius: 15px;
+}
+#search-btn{
+color: #221d1d;
+
+}
+h2
+{
+background-color:  #ddcaca;
+
+
+}
+
+
+
+</style> 
+<div class="Enter">
+  <h2>🎬 Universal YouTube Downloader</h2>
+
+  <input type="text" id="url-input" placeholder="Enter YouTube URL">
+  <button id="search-btn">Search</button>
+
+  <h3 id="video-title"></h3>
+
+  <div class="dropdown">
+    <button id="video-dropbtn" class="dropbtn">🎥 Select Video Quality</button>
+    <div id="video-dropdown-content" class="dropdown-content"></div>
+  </div>
+
+  <div class="dropdown">
+    <button id="audio-dropbtn" class="dropbtn">🎵 Select Audio Format</button>
+    <div id="audio-dropdown-content" class="dropdown-content"></div>
+  </div>
+</div>
+  <script src="main.js"></script>
+</body>
+</html> 
+  
