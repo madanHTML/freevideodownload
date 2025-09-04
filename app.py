@@ -5,25 +5,36 @@ import os
 
 app = Flask(__name__)
 
+# Global progress store
+progress = {}
+cookie_file = "cookies.txt"
+
 # Serve frontend
 @app.route("/")
 def home():
-    return send_from_directory(".", "index.html")  # index.html same folder
+    return send_from_directory(".", "index.html")
 
 @app.route("/main.js")
 def serve_js():
-    return send_from_directory(".", "main.js")     # main.js same folder
+    return send_from_directory(".", "main.js")
 
-# Get available formats (optional for UI)
+# Get available formats
 @app.route("/formats", methods=["POST"])
 def formats():
     try:
         url = (request.json or {}).get("url")
         if not url:
             return jsonify({"error": "URL required"}), 400
+
+        ydl_opts = {
+            "cookiefile": cookie_file if os.path.exists(cookie_file) else None,
+            "quiet": True,
+            "noprogress": True
+        }
+
         out = []
-        with yt_dlp.YoutubeDL({}) as ydl:
-            info = ydl.extract_info(url, download=False)  # metadata only
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=False)
             for f in info.get("formats", []):
                 out.append({
                     "id": f.get("format_id"),
@@ -40,34 +51,37 @@ def formats():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Universal download route – robust audio+video merge
+
+# Download with progress
 @app.route("/download", methods=["POST"])
 def download():
     try:
         data = request.json or {}
         url = data.get("url")
-        format_id = data.get("format_id")          # optional; if not sent, we auto-select
+        format_id = data.get("format_id")
         audio_as_mp3 = bool(data.get("audio_as_mp3", False))
 
         if not url:
             return jsonify({"error": "URL required"}), 400
 
-        # Output filename
         ext = "mp3" if audio_as_mp3 else "mp4"
         out_name = f"{uuid.uuid4()}.{ext}"
 
-        # Build robust format selection
+        # Progress hook
+        def my_hook(d):
+            progress["status"] = d
+
+        # Format selection
         use_selector = False
         fmt_expr = None
-
         if audio_as_mp3:
-            fmt_expr = "ba[acodec^=mp4a]/bestaudio"  # reliable audio capture
+            fmt_expr = "ba[acodec^=mp4a]/bestaudio"
             use_selector = True
         else:
             if format_id and '+' in format_id:
-                ydl_fmt = format_id  # e.g., "137+251"
+                ydl_fmt = format_id
             elif format_id:
-                ydl_fmt = f"{format_id}+bestaudio/b"  # fallback
+                ydl_fmt = f"{format_id}+bestaudio/b"
             else:
                 use_selector = True
 
@@ -83,7 +97,9 @@ def download():
             "merge_output_format": "mp4",
             "outtmpl": out_name,
             "noprogress": False,
-            "quiet": False,
+            "quiet": True,
+            "progress_hooks": [my_hook],
+            "cookiefile": cookie_file if os.path.exists(cookie_file) else None
         }
 
         if audio_as_mp3:
@@ -109,8 +125,13 @@ def download():
         return send_file(out_name, as_attachment=True)
 
     except Exception as e:
-        # Return readable error to UI
         return jsonify({"error": str(e)}), 500
+
+
+# Progress endpoint
+@app.route("/progress", methods=["GET"])
+def get_progress():
+    return jsonify(progress)
 
 
 if __name__ == "__main__":
