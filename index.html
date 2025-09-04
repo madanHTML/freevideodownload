@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Video Downloader – Download from pinterest, Instagram, Facebook, Twitter & More</title>
+<meta name="description" content="Download videos & music online for free from YouTube, Instagram, Facebook, Twitter and 1000+ sites. Fast, secure, and unlimited MP4 & MP3 downloads.">
+<meta name="keywords" content="video downloader, free video downloader, YouTube downloader, Facebook video download, Instagram downloader, Twitter video downloader, MP3 downloader, HD video download, online downloader">
+<meta name="robots" content="index, follow">
+<!--<meta name="author" content="YourWebsiteName">-->
   <title>YouTube Video Downloader</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -478,7 +483,7 @@
       loading.style.display = 'block';
       videoInfo.style.display = 'none';
 
-      let res = await fetch('http://127.0.0.1:5000/formats', {
+      let res = await fetch('https://dolodear-1.onrender.com/formats', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url })
@@ -536,7 +541,7 @@
       progressBar.style.width = "0%";
       progressText.innerText = "Starting download...";
 
-      let res = await fetch("http://127.0.0.1:5000/download", {
+      let res = await fetch("https://dolodear-1.onrender.com/download", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, format_id: formatId })
@@ -815,5 +820,6 @@
   </script>
 </body>
 </html>
+
 
 
