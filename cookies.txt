@@ -1,7 +1,7 @@
 # Netscape HTTP Cookie File
 # http://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file!  Do not edit.
-
+--extractor-args "youtubetab:skip=webpage" --extractor-args "youtube:player_skip=webpage,configs;visitor_data=VISITOR_DATA_VALUE_HERE"
 .wix.com	TRUE	/serverless-yoshi-website-channel/website-channel-acca7993950642562c35dc76dd6e075c/_api_/api/get-initial-templates-data/get-initial-templates-data.api	FALSE	1770437365	_wixAB3	3477653#1|4464245#1
 .wix.com	TRUE	/serverless-yoshi-dashboard-sales-app/dashboard-sales-app-00e7c6423c43ee2649f73eaabc3172d1/_api_/api/get-initial-data/get-initial-data.api	FALSE	1770437267	_wixAB3	3477653#1
 .wix.com	TRUE	/html/editor/web/renderer/render/document/48de91cd-004b-48a4-9b75-042be23efeba	FALSE	1770437795	_wixAB3	3477653#1|4429890#2|4479208#2|4481743#2|4480313#1|4479209#1
