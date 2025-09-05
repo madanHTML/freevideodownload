@@ -1,7 +1,31 @@
 # Netscape HTTP Cookie File
 # http://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file!  Do not edit.
---extractor-args "youtubetab:skip=webpage" --extractor-args "youtube:player_skip=webpage,configs;visitor_data=VISITOR_DATA_VALUE_HERE"
+
+.youtube.com	TRUE	/	TRUE	1772562433	VISITOR_INFO1_LIVE	q1u_QEOxA9Y
+.youtube.com	TRUE	/	TRUE	1772562433	VISITOR_PRIVACY_METADATA	CgJJThIEGgAgSw%3D%3D
+.youtube.com	TRUE	/	FALSE	1764307080	_gcl_au	1.1.1333768543.1756531081
+.youtube.com	TRUE	/	TRUE	1791640349	PREF	f6=40000000&tz=Asia.Katmandu&f7=100&f5=20000
+.youtube.com	TRUE	/	TRUE	1791560113	LOGIN_INFO	AFmmF2swRgIhAPzZtFDpFzKiDlsGX89NPGMMS41-u3MTJihxi0nPRncyAiEA5vvvwh_44hL-9H6J2CU5ruXQrMpCJSXZAeADMakr_eA:QUQ3MjNmejYwdWJXMmRIbzVFaHg4bmFiRmtBakcyMlFjV1puWmZaZ0NjVGhXMGtMLTA0WmR2dmlSb1Z6UVhreGZYUENveDlEN1V5OWk5WFpxbDFZeS1qTnhrRVBKUTNCYnhLUDVhb19EcVhIT3hSWHhVeENSd0pGeXZnY2JfaE1RTE9NOU1GaldsbnJvby1KVGVPdDdheDMzZjZpUnFLSkN3
+.youtube.com	TRUE	/	FALSE	1791569663	SID	g.a0001Ahd9wHLBhcsST_joP0pSqKYSZ_tckxaNGGmnyuY3sV5GCKqZNxodQRFhMRCj0UFqpljnQACgYKAf0SARYSFQHGX2Min0_MOwV1U64C3GhlML_3BBoVAUF8yKrZMZt_GpYvuRaa5DKCsbga0076
+.youtube.com	TRUE	/	TRUE	1791569663	__Secure-1PSID	g.a0001Ahd9wHLBhcsST_joP0pSqKYSZ_tckxaNGGmnyuY3sV5GCKqYctxQh80qtiGQFZyhg5RugACgYKAWoSARYSFQHGX2MirTP27kwbNVqMYg3nt8dmnhoVAUF8yKrh92aHOLGnDlryJTWY1QmS0076
+.youtube.com	TRUE	/	TRUE	1791569663	__Secure-3PSID	g.a0001Ahd9wHLBhcsST_joP0pSqKYSZ_tckxaNGGmnyuY3sV5GCKqQ6t01WR53AEq4S1B7AteDAACgYKAc8SARYSFQHGX2Mip9ods-CkMhEXcGHqpMTErRoVAUF8yKqWIeD_0gVCw0GCALkEWWhy0076
+.youtube.com	TRUE	/	FALSE	1791569663	HSID	A-XWi11h4g4IOXiA0
+.youtube.com	TRUE	/	TRUE	1791569663	SSID	AH2T-EqQrAXddjMP4
+.youtube.com	TRUE	/	FALSE	1791569663	APISID	i84kSPP_k0sqo_Ym/AqGoMaP7ITbN1_anR
+.youtube.com	TRUE	/	TRUE	1791569663	SAPISID	XsjWvwoazrXPTrmX/AdyytmKzUl5yfp7nk
+.youtube.com	TRUE	/	TRUE	1791569663	__Secure-1PAPISID	XsjWvwoazrXPTrmX/AdyytmKzUl5yfp7nk
+.youtube.com	TRUE	/	TRUE	1791569663	__Secure-3PAPISID	XsjWvwoazrXPTrmX/AdyytmKzUl5yfp7nk
+.youtube.com	TRUE	/	TRUE	1788619963	__Secure-1PSIDTS	sidts-CjUB5H03P2he1Horvk8jvVlu0kOnDKltuno7o0n-pPa2IwNJzvo1nvcWmf7WHkrvauiftL2M_hAA
+.youtube.com	TRUE	/	TRUE	1788619963	__Secure-3PSIDTS	sidts-CjUB5H03P2he1Horvk8jvVlu0kOnDKltuno7o0n-pPa2IwNJzvo1nvcWmf7WHkrvauiftL2M_hAA
+.youtube.com	TRUE	/	FALSE	1788620177	SIDCC	AKEyXzVVaWDYzg0NaXH4frHzhIQcsQZWxAc3DJbws1O1q2pFJxCLaf0av-5DkRsTYJdSxtN5ug
+.youtube.com	TRUE	/	TRUE	1788620177	__Secure-1PSIDCC	AKEyXzXfiUGWfFtRx-O32OoeiRx3UtNInFT2mBTnrBG4I8joNRPgxEUPNtty6PhsGazCfmA2zK0
+.youtube.com	TRUE	/	TRUE	1788620177	__Secure-3PSIDCC	AKEyXzXaeVsPuM_ieV7sGjwDaGX8PndhJppTnOPo9O2IWPPeCD7JvKqhpFTbYliZ1B7GeE8R8YE
+.youtube.com	TRUE	/	TRUE	1772632357	VISITOR_INFO1_LIVE	q1u_QEOxA9Y
+.youtube.com	TRUE	/	TRUE	1772632357	VISITOR_PRIVACY_METADATA	CgJJThIEGgAgSw%3D%3D
+.youtube.com	TRUE	/	TRUE	0	YSC	6mE05NfC7Uk
+.youtube.com	TRUE	/	TRUE	1772632345	__Secure-ROLLOUT_TOKEN	CMqdyM_n_ZmJ3wEQz7r0zrfrjgMY5ISel-LBjwM%3D
+
 .wix.com	TRUE	/serverless-yoshi-website-channel/website-channel-acca7993950642562c35dc76dd6e075c/_api_/api/get-initial-templates-data/get-initial-templates-data.api	FALSE	1770437365	_wixAB3	3477653#1|4464245#1
 .wix.com	TRUE	/serverless-yoshi-dashboard-sales-app/dashboard-sales-app-00e7c6423c43ee2649f73eaabc3172d1/_api_/api/get-initial-data/get-initial-data.api	FALSE	1770437267	_wixAB3	3477653#1
 .wix.com	TRUE	/html/editor/web/renderer/render/document/48de91cd-004b-48a4-9b75-042be23efeba	FALSE	1770437795	_wixAB3	3477653#1|4429890#2|4479208#2|4481743#2|4480313#1|4479209#1
