@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify, send_file, send_from_directory, after_this_request
+from flask import Flask, request, jsonify, send_file, send_from_directory, after_this_request, Response
 import yt_dlp
 import uuid
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -17,6 +18,41 @@ def home():
 @app.route("/main.js")
 def serve_js():
     return send_from_directory(".", "main.js")
+
+# ✅ Robots.txt serve
+@app.route("/robots.txt")
+def robots():
+    return Response(
+        "User-agent: *\nAllow: /\nSitemap: https://dolodear-1.onrender.com/sitemap.xml",
+        mimetype="text/plain"
+    )
+
+# ✅ Sitemap.xml dynamic
+@app.route("/sitemap.xml")
+def sitemap():
+    pages = [
+        {"loc": "https://dolodear-1.onrender.com/", "priority": "1.0", "changefreq": "daily"},
+        {"loc": "https://dolodear-1.onrender.com/formats", "priority": "0.8", "changefreq": "weekly"},
+        {"loc": "https://dolodear-1.onrender.com/download", "priority": "0.8", "changefreq": "weekly"},
+    ]
+
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+
+    for page in pages:
+        xml.append("<url>")
+        xml.append(f"<loc>{page['loc']}</loc>")
+        xml.append(f"<lastmod>{datetime.utcnow().date()}</lastmod>")
+        xml.append(f"<changefreq>{page['changefreq']}</changefreq>")
+        xml.append(f"<priority>{page['priority']}</priority>")
+        xml.append("</url>")
+
+    xml.append("</urlset>")
+    return Response("\n".join(xml), mimetype="application/xml")
+
+# ===============================
+# Existing YT-DLP routes (unchanged)
+# ===============================
 
 # Get available formats
 @app.route("/formats", methods=["POST"])
