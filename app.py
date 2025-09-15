@@ -87,7 +87,6 @@ def formats():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 # Download with progress
 @app.route("/download", methods=["POST"])
 def download():
@@ -102,11 +101,9 @@ def download():
 
         ext = "mp3" if audio_as_mp3 else "mp4"
         out_name = f"{uuid.uuid4()}.{ext}"
-
         # Progress hook
         def my_hook(d):
             progress["status"] = d
-
         # Format selection
         use_selector = False
         fmt_expr = None
@@ -142,7 +139,6 @@ def download():
             ydl_opts["postprocessors"] = [
                 {"key": "FFmpegExtractAudio", "preferredcodec": "mp3"}
             ]
-
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
 
@@ -168,8 +164,8 @@ def download():
 @app.route("/progress", methods=["GET"])
 def get_progress():
     return jsonify(progress)
-
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port, debug=False)
+
+
