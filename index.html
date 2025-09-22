@@ -542,7 +542,7 @@
       progressBar.style.width = "0%";
       progressText.innerText = "Starting download...";
 
-      let res = await fetch("https://freevideodownload-production-6f46.up.railway.app/download", {
+      let res = await fetch("https://freevideodownload-production-6f46.up.railway.app//download", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, format_id: formatId })
@@ -821,6 +821,7 @@
   </script>
 </body>
 </html>
+
 
 
 
