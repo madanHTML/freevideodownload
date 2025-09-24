@@ -3,7 +3,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Install ffmpeg (yt-dlp ke liye required)
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (better caching)
 COPY requirements.txt .
@@ -19,3 +19,4 @@ EXPOSE 10000
 
 # Start the app
 CMD ["python", "app.py"]
+
