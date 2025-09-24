@@ -9,7 +9,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files (app.py, index.html, main.js, cookies.txt if exists)
 COPY . .
@@ -19,4 +19,5 @@ EXPOSE 10000
 
 # Start the app
 CMD ["python", "app.py"]
+
 
