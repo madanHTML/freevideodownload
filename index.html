@@ -484,7 +484,7 @@
       loading.style.display = 'block';
       videoInfo.style.display = 'none';
 
-      let res = await fetch('https://freevideodownload-production-6f46.up.railway.app/formats', {
+      let res = await fetch('https://freevideodownload-production-6f46.up.railway.app//formats', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url })
@@ -583,4 +583,5 @@
   </script>
 </body>
 </html>
+
 
