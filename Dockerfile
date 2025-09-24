@@ -3,13 +3,13 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Install ffmpeg (yt-dlp ke liye required)
-#RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (better caching)
 COPY requirements.txt .
 
 # Install Python dependencies
-#RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files (app.py, index.html, main.js, cookies.txt if exists)
 COPY . .
@@ -19,5 +19,6 @@ EXPOSE 10000
 
 # Start the app
 CMD ["python", "app.py"]
+
 
 
